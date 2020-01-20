@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tjl.work</groupId>
+    <artifactId>work-home</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>工作目录</description>
+
+    <parent>
+        <artifactId>tjl-base</artifactId>
+        <groupId>com.tjl.base</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <work.version>1.0-SNAPSHOT</work.version>
+    </properties>
+    <modules>
+        <module>tjl-base-geteway</module>
+        <module>tjl-base-eureka</module>
+        <module>tjl-base-service</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>tjl-dao</artifactId>
+                <groupId>com.tjl.base</groupId>
+                <version>${work.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>tjl-redis</artifactId>
+                <groupId>com.tjl.base</groupId>
+                <version>${work.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

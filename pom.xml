@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tjl.base</groupId>
+    <artifactId>tjl-base</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>tjl-redis</module>
+        <module>tjl-dao</module>
+        <module>tjl-gentrator</module>
+    </modules>
+    <packaging>pom</packaging>
+    <description>基础依赖管理</description>
+
+    <properties>
+        <!--common-->
+        <java.version>1.8</java.version>
+        <jedis.version>3.0.1</jedis.version>
+        <commons-lang3.version>3.8</commons-lang3.version>
+        <fastjson.version>1.2.49</fastjson.version>
+        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+        <lombok.version>1.18.2</lombok.version>
+        <!-- druid -->
+        <starter.druid.version>1.1.10</starter.druid.version>
+        <starter.mybatis-plus.version>3.1.0</starter.mybatis-plus.version>
+        <!-- 数据库 -->
+        <mysql.version>8.0.11</mysql.version>
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${starter.druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${starter.mybatis-plus.version}</version>
+            </dependency>
+            <!-- mybatis plus 代码生成器依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${starter.mybatis-plus.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- 默认jdk为1.8,必须要配置 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
