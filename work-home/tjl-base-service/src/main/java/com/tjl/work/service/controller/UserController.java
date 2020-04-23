@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description: 测试请求
  */
 @RestController
-public class BaseController {
+@RequestMapping("/user")
+public class UserController {
 
-    @RequestMapping("/hystrixFallback")
-    public String hystrixFallback() {
-        return "This is a fallback";
+    @RequestMapping("/test")
+    public String test() {
+        return "user test get way";
     }
 }
