@@ -18,7 +18,7 @@ public class BaseRouter {
         return builder.routes()
                 .route(r -> r.path("/baidu").uri("http://baidu.com:80/"))
                 .route(r -> r.path("/user/**").uri("lb://base-service"))
-                .route(r->r.path("/order/**").uri("lb://base-service"))
+                .route(r -> r.path("/order/**").uri("lb://base-service"))
                 .build();
     }
 }

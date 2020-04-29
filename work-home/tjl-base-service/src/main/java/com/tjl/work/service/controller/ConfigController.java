@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigController {
     @RequestMapping("/actuator/info")
-    public String actuatorInfo(){
+    public String actuatorInfo() {
         return "tjl test server";
     }
 }

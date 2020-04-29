@@ -15,9 +15,10 @@ public class TjlBaseServiceApplicationTests {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
     @Test
     public void testRedis() {
-        redisTemplate.opsForValue().set("tjl","tjl-redis",10000, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set("tjl", "tjl-redis", 10000, TimeUnit.MINUTES);
     }
 
 }
