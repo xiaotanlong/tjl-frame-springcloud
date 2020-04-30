@@ -6,7 +6,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * 功能描述: gateway demo
- * @author tanjianglong
+ * @author tjl
  * @date: 2019/8/27
  */
 @SpringBootApplication

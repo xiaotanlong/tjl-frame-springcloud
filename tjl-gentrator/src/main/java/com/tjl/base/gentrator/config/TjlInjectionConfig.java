@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 功能描述
- * @author tanjianglong
+ * @author tjl
  * @Type TjlInjectionConfig
  * @date 2020/1/2 14:30
  * @Version 1.0

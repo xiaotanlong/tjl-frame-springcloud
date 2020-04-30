@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 功能描述
- *
- * @author tanjianglong
+ * @author tjl
  * @Type ConfigController
  * @date 2020/4/23 16:06
  * @Version 1.0

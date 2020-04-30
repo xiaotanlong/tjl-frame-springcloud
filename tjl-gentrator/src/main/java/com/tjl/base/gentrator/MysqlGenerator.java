@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 功能描述
- * @author tanjianglong
+ * @author tjl
  * @Type MysqlGenerator
  * @date 2019/12/12 15:52
  * @Version 1.0
@@ -30,7 +30,7 @@ public class MysqlGenerator {
         //输出文件路径
         gc.setOutputDir("E:\\develop\\tjl");
         //作者
-        gc.setAuthor("tanjianglong");
+        gc.setAuthor("tjl");
         //是否打开输出目录 默认 true
         gc.setOpen(false);
         //开启 BaseResultMap 默认 false

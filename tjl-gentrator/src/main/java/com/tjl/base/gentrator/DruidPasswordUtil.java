@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * 功能描述 数据库连接 加解密
- * @author tanjianglong
+ * @author tjl
  * @Type DruidPasswordUtil
  * @date 2019/12/13 14:45
  * @Version 1.0

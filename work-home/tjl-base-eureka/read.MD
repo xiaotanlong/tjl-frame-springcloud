@@ -1,7 +1,7 @@
 # Instances currently registered with Eureka 
-API-GETAWAY	n/a (1)	(1)	UP (1) - PF12V7S3.lls.sz.cn:api-getaway:5001 - PF12V7S3.lls.sz.cn:api-getaway:5001
+API-GETAWAY	n/a (1)	(1)	UP (1) - localhost:api-getaway:5001 - localhost:api-getaway:5001
 
-PF12V7S3.lls.sz.cn --是hostname  本地计算机名
+localhost--是hostname  本地计算机名
 
 
 # SpringBoot 安全组件  设置访问 Eureka注册中心 需要用户名密码限制
@@ -38,4 +38,24 @@ PF12V7S3.lls.sz.cn --是hostname  本地计算机名
     * 5.因为心跳会一直进行  记录和缓存一部分异常注册中心可以增加 请求成功率；同时缓存到一定个数在进行清空 可以重新获取所有节点的状态
     * eureka.client.transport.retryableClientQuarantineRefreshPercentage = xxx   配置项
     * eureka.client.service-url.defaultZone=http://localhost:5001/eureka,http://localhost:5002/eureka,http://localhost:5003/eureka,http://localhost:5004/eureka
+    
+    
+# # com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+搭建的SpringCloud的Eureka添加了安全验证，但是其他的服务注册不上了。上网查了一下，原来是Spring Security启用csrf，然后会对URL请求进行token验证，
+如果请求中没有token,浏览器会任务是非法网页的请求，然后就会拒绝。
+新版（Spring Cloud 2.0 以上）的security默认启用了csrf检验，要在eurekaServer端配置security的csrf检验为false;
+```$xslt
+    @EnableWebSecurity
+    static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.csrf().disable();
+        }
+    }
+```
+在页面登录管理和客户端注册上 据说后面版本会解决兼容
+
+
+
+
 

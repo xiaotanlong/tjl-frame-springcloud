@@ -21,6 +21,7 @@
         <module>tjl-base-geteway</module>
         <module>tjl-base-eureka</module>
         <module>tjl-base-service</module>
+        <module>tjl-base-ribbon</module>
     </modules>
 
     <dependencyManagement>

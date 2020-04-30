@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 
 /**
  * 功能描述 自定义序列化
- * @author tanjianglong
+ * @author tjl
  * @Type FastJson2JsonRedisSerializer
  * @Version 1.0
  */

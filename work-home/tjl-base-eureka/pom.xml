@@ -20,9 +20,9 @@
         </dependency>
 
         <!--添加安全认证-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>
