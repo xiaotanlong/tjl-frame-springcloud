@@ -63,7 +63,7 @@ public class MyBatisPlusConfig {
     class MybatisPlusCustomizers implements ConfigurationCustomizer {
         MybatisPlusCustomizers() {
         }
-
+        @Override
         public void customize(org.apache.ibatis.session.Configuration configuration) {
             configuration.setObjectWrapperFactory(new MybatisMapWrapperFactory());
         }
