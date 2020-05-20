@@ -6,7 +6,7 @@ import lombok.Data;
 
 /**
  * 功能描述
- * @author tanjianglong
+ * @author tjl
  * @Type DemoData
  * @date 2020/5/9 17:52
  * @Version 1.0

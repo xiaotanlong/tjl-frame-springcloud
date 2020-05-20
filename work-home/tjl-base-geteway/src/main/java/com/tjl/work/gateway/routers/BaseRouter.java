@@ -1,5 +1,6 @@
 package com.tjl.work.gateway.routers;
 
+import com.tjl.work.gateway.filters.GatewayFilterForUserService;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ public class BaseRouter {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/baidu").uri("http://baidu.com:80/"))
-                .route(r -> r.path("/user/**").uri("lb://base-service"))
+                .route(r -> r.path("/user/**").uri("lb://base-service").filters(new GatewayFilterForUserService()))
                 .route(r -> r.path("/order/**").uri("lb://base-service"))
                 .build();
     }
