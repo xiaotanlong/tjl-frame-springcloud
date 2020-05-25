@@ -12,7 +12,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 #end
-import com.tjl.common.*;
 /**
  * <p>
  * $!{table.comment}

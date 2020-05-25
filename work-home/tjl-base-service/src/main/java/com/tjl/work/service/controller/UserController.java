@@ -1,5 +1,14 @@
 package com.tjl.work.service.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.tjl.work.core.web.ResponseVO;
+import com.tjl.work.core.web.RetResponse;
+import com.tjl.work.service.entity.UserDO;
+import com.tjl.work.service.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +21,36 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
     @RequestMapping("/test")
     public String test() {
+        System.out.println(userService.list());
+        redisTemplate.opsForValue().set("tjl-test",userService.list().get(0));
         return "user test get way";
+    }
+
+    @PostMapping("/login")
+    public ResponseVO login(@RequestBody UserDO user) {
+        if(user == null){
+            return RetResponse.success("no user ! login error !");
+        }
+
+        QueryWrapper<UserDO> queryWrapper = new QueryWrapper<UserDO>(user);
+        UserDO userDO = userService.getOne(queryWrapper);
+        if(userDO != null){
+            redisTemplate.opsForValue().set(String.valueOf(userDO.getId()),userDO);
+        }
+        return RetResponse.success(userDO);
+    }
+
+    @PostMapping("/getOne")
+    public UserDO getOne(@RequestBody UserDO user) {
+        return  userService.getById(user.getId());
     }
 }

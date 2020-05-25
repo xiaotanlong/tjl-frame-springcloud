@@ -60,7 +60,7 @@ public class MysqlGenerator {
         //数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL);
-        dataSourceConfig.setUrl("jdbc:mysql://127.0.0.1:3306/bigdb_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false");
+        dataSourceConfig.setUrl("jdbc:mysql://local.db.cn:3306/bigdb_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false");
         dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
         dataSourceConfig.setUsername("root");
         dataSourceConfig.setPassword("123456");
@@ -68,15 +68,17 @@ public class MysqlGenerator {
 
         //策略配置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setTablePrefix("s_");
-        strategyConfig.setInclude("s_business_positive");
+        strategyConfig.setTablePrefix("sys_");
+        strategyConfig.setInclude("sys_user");
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setSuperEntityClass(SuperEntity);
-        strategyConfig.setEntityLombokModel(true);//【实体】是否为lombok模型
+        //【实体】是否为lombok模型
+        strategyConfig.setEntityLombokModel(true);
         strategyConfig.setSuperControllerClass(SuperController);
-//        strategy.setInclude(scanner("表名"));
-        strategyConfig.setSuperEntityColumns("id");
+//      strategy.setInclude(scanner("表名"));
+        /***设置会不生成该字段列*/
+        //strategyConfig.setSuperEntityColumns("id");
         strategyConfig.setControllerMappingHyphenStyle(true);
 
         mpg.setStrategy(strategyConfig);
