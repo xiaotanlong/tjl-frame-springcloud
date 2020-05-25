@@ -11,8 +11,3 @@
  * @ConditionalOnNotWebApplication，不是web应用时才会实例化这个Bean。
  * @AutoConfigureAfter，在某个bean完成自动配置后实例化这个bean。
  * @AutoConfigureBefore，在某个bean完成自动配置前实例化这个bean。
-
-
-
-#### org.apache.ibatis.plugin.Interceptor
-Mybatis3 插件采用责任链模式，通过动态代理组织多个拦截器（插件），通过这些拦截器可以改变Mybatis的默认行为（诸如SQL重写之类的）

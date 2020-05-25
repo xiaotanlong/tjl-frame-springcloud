@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tjl.work</groupId>
     <artifactId>work-home</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>工作目录</description>
 
@@ -22,6 +23,7 @@
         <module>tjl-base-eureka</module>
         <module>tjl-base-service</module>
         <module>tjl-base-ribbon</module>
+        <module>tjl-base-core</module>
     </modules>
 
     <dependencyManagement>
