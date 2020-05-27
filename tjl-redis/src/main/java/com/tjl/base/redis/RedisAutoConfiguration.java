@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
@@ -63,7 +61,9 @@ public class RedisAutoConfiguration {
     }
 
     @Bean(name = {"redisTemplate"})
-    @ConditionalOnMissingBean
+    //@ConditionalOnMissingBean
+    //使用 ConditionalOnMissingBean 注解来加载 RedisTemplate 则可能会产生 部分服务无法执行到该方法
+    // 推测是 一些框架的包 中包含有 redis的 引用 导致 ConditionalOnMissingBean不成立
     public RedisTemplate<String, Object> initRedisTemplate(@Qualifier("connectionFactory") JedisConnectionFactory jedisConnectionFactory, RedisSerializer fastJson2JsonRedisSerializer) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate();
         redisTemplate.setConnectionFactory(jedisConnectionFactory);

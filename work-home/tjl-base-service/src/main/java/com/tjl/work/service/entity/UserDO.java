@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tjl.base.dao.mybatisplus.BaseModel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import java.time.LocalDateTime;
 
@@ -17,6 +19,8 @@ import java.time.LocalDateTime;
 @Data
 @Accessors(chain = true)
 @TableName("sys_user")
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public class UserDO extends BaseModel {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;

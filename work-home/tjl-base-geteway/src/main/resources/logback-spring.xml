@@ -6,11 +6,11 @@
 
     <include resource="config/log/common.xml" />
     <!-- 特殊设置：配置某个个包下的日志输出级别 -->
-    <logger name="com.tjl.work.gateway.filters.TokenGlobalFilter" level="ERROR">
-        <!-- 指定输出 生效的文件配置 -->
+    <!--<logger name="com.tjl.work.gateway.filters.TokenGlobalFilter" level="DEBUG">
+        &lt;!&ndash; 指定输出 生效的文件配置 &ndash;&gt;
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="INFO_FILE" />
-    </logger>
+    </logger>-->
 
     <logger name="com.netflix.discovery.DiscoveryClient" level="ERROR">
         <!-- 指定输出 生效的文件配置 -->

@@ -22,7 +22,7 @@ public class GatewayFilterForUserService implements GatewayFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         List<String> tokens =  exchange.getRequest().getHeaders().get("x-auth-token");
-        logger.info("======= 服务路由时的过滤器=====token is {}...", tokens);
+        logger.info("======= 作用于 用户服务的 过滤器=====token is {}...", tokens);
         return chain.filter(exchange);
     }
 }

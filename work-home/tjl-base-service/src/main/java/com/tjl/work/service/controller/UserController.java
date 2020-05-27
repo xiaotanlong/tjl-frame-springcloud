@@ -1,11 +1,13 @@
 package com.tjl.work.service.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.tjl.work.core.web.ResponseVO;
 import com.tjl.work.core.web.RetResponse;
 import com.tjl.work.service.entity.UserDO;
 import com.tjl.work.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    @Qualifier("redisTemplate")
     private RedisTemplate redisTemplate;
 
 
@@ -44,7 +47,7 @@ public class UserController {
         QueryWrapper<UserDO> queryWrapper = new QueryWrapper<UserDO>(user);
         UserDO userDO = userService.getOne(queryWrapper);
         if(userDO != null){
-            redisTemplate.opsForValue().set(String.valueOf(userDO.getId()),userDO);
+            redisTemplate.opsForValue().set("11", JSONObject.toJSONString(userDO));
         }
         return RetResponse.success(userDO);
     }

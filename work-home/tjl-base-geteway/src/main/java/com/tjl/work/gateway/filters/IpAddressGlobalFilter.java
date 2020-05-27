@@ -21,7 +21,7 @@ public class IpAddressGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String hostString = exchange.getRequest().getRemoteAddress().getHostString();
         //TODO 做ip白名单黑名单限制
-        logger.info( "hostString is {}...", hostString );
+        logger.info( "=========作用于全局 IpAddress is {}...======", hostString );
         return chain.filter(exchange);
     }
 
