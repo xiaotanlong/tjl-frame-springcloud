@@ -1,6 +1,4 @@
 package com.tjl.work.service.controller;
-
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.tjl.work.core.models.UserVO;
 import com.tjl.work.core.web.ResponseVO;
