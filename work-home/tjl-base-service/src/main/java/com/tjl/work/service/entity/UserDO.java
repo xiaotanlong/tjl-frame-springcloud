@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
 public class UserDO extends BaseModel {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
     /**
      * 所属角色id
      */

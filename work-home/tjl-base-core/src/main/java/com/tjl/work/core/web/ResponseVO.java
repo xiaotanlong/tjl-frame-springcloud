@@ -49,4 +49,13 @@ public class ResponseVO<T> implements Serializable {
     public void setCode(int code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        return "ResponseVO{" +
+                "message='" + message + '\'' +
+                ", data=" + data +
+                ", code=" + code +
+                '}';
+    }
 }

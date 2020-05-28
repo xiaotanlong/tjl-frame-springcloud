@@ -1,6 +1,7 @@
 package com.tjl.work.gateway.filters;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tjl.work.core.models.UserVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -65,7 +66,8 @@ public class TokenGlobalFilter implements GlobalFilter, Ordered {
             response.getHeaders().add("Content-Type", "text/plain;charset=UTF-8");
             return response.writeWith(Mono.just(buffer));
         }
-        logger.info(JSONObject.toJSONString(redisTemplate.opsForValue().get(token)));
+        UserVO userVO = (UserVO)redisTemplate.opsForValue().get(token);
+        logger.info(userVO.toString());
         return chain.filter(exchange);
     }
 
