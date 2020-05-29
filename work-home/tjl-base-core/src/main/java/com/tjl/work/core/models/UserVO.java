@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
- * 功能描述
- *
+ * 功能描述 用户信息传递包装类
  * @author tjl
  * @Type UserVO
  * @date 2020/5/28 11:48
@@ -135,6 +134,10 @@ public class UserVO implements Serializable {
         return loginDate;
     }
 
+    public void setLoginDate(Date loginDate) {
+        this.loginDate = loginDate;
+    }
+
     @Override
     public String toString() {
         return "UserVO{" +
@@ -148,10 +151,6 @@ public class UserVO implements Serializable {
                 ", valid='" + valid + '\'' +
                 ", createTime=" + createTime +
                 '}';
-    }
-
-    public void setLoginDate(Date loginDate) {
-        this.loginDate = loginDate;
     }
 
     public String getToken(){

@@ -3,7 +3,7 @@ package com.tjl.work.core.web;
 import java.io.Serializable;
 
 /**
- * 功能描述
+ * 功能描述 http 接口响应类
  * @author tjl
  * @Type ResponseVO
  * @date 2020/5/25 15:55

@@ -15,10 +15,11 @@ public class RetResponse {
 
     //自定义code,msg 返回数据
     public static <T> ResponseVO<T> makeRsp(int code, String msg) {
-        return new ResponseVO<T>(code,msg,null);
+        return new ResponseVO<T>(code, msg, null);
     }
+
     //自定义code,msg,data 返回数据
     public static <T> ResponseVO<T> makeRsp(int code, String msg, T data) {
-        return new ResponseVO<T>(code,msg,data);
+        return new ResponseVO<T>(code, msg, data);
     }
 }
