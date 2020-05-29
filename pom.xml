@@ -74,6 +74,7 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+
             <!-- fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
